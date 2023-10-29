@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { asyncPopulateUsersAndThreads } from '../states/shared/action';
 import ThreadList from '../components/ThreadList';
 import CategoryList from '../components/CategoryList';
+import { PlusCircleIcon } from '@heroicons/react/24/solid';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   const {
@@ -35,9 +37,16 @@ export default function Home() {
         <h1>Kategori</h1>
         <CategoryList categories={categoryList} />
       </div>
-
       <h1 className='font-semibold text-2xl'>Beranda</h1>
       <ThreadList threads={threadList} />
+
+      {authUser && (
+        <Link to='/create-thread'>
+          <button className='fixed bottom-[90px] right-[40px]'>
+            <PlusCircleIcon className='w-12 h-12' />
+          </button>
+        </Link>
+      )}
     </section>
   );
 }

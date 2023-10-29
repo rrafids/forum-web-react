@@ -9,6 +9,7 @@ import RegisterPage from './pages/Register';
 import DetailPage from './pages/DetailThread';
 import { asyncPreloadProcess } from './states/isPreload/action';
 import { asyncUnsetAuthUser } from './states/authUser/action';
+import CreateThread from './components/CreateThread';
 
 function App() {
   const { authUser = null, isPreload = false } = useSelector(
@@ -39,9 +40,10 @@ function App() {
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/' element={<HomePage />} />
             <Route path='/threads/:id' element={<DetailPage />} />
+            <Route path='/create-thread' element={<CreateThread />} />
           </Routes>
         </main>
-        <MenuBar authUser={authUser} signOut={onSignOut}/>
+        <MenuBar authUser={authUser} signOut={onSignOut} />
       </div>
     </>
   );
