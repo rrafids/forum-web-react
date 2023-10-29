@@ -28,7 +28,7 @@ export default function ThreadItem({
           {title}
         </a>
         <p
-          className='text-sm'
+          className='text-sm line-clamp-5'
           dangerouslySetInnerHTML={{
             __html: body,
           }}
