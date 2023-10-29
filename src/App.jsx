@@ -32,8 +32,8 @@ function App() {
   return (
     <>
       <div>
-        <Header authUser={authUser} signOut={onSignOut} />
-        <main className='bg-gray-200 h-full flex flex-col items-center'>
+        <Header />
+        <main className='bg-gray-200 h-full flex flex-col items-center min-h-screen place-content-center'>
           <Routes>
             <Route path='/login' element={<LoginPage />} />
             <Route path='/register' element={<RegisterPage />} />
@@ -41,7 +41,7 @@ function App() {
             <Route path='/threads/:id' element={<DetailPage />} />
           </Routes>
         </main>
-        <MenuBar />
+        <MenuBar authUser={authUser} signOut={onSignOut}/>
       </div>
     </>
   );

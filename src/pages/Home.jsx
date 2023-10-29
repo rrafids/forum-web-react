@@ -5,7 +5,11 @@ import ThreadList from '../components/ThreadList';
 import CategoryList from '../components/CategoryList';
 
 export default function Home() {
-  const { threads = [], users = [] } = useSelector((states) => states);
+  const {
+    threads = [],
+    users = [],
+    authUser,
+  } = useSelector((states) => states);
 
   const dispatch = useDispatch();
 
@@ -26,7 +30,7 @@ export default function Home() {
     }));
 
   return (
-    <section className='bg-white w-[750px] p-[25px] space-y-[25px] my-[50px]'>
+    <section className='bg-white w-[750px] p-[25px] space-y-[25px] my-[50px] min-h-screen'>
       <div>
         <h1>Kategori</h1>
         <CategoryList categories={categoryList} />
