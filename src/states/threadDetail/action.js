@@ -28,5 +28,5 @@ function asyncPopulateThreadDetail({ threadId }) {
 
 export {
   ActionType,
-  asyncPopulateThreadDetail
+  asyncPopulateThreadDetail,
 };

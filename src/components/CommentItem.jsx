@@ -13,14 +13,13 @@ export default function CommentItem({
   downVotesBy,
 }) {
   return (
-    <div className='space-y-[15px]'>
+    <div className='mt-[15px] space-y-[15px]'>
       <div className='space-y-[15px]'>
         <div className='flex items-center justify-between'>
           <div className='flex items-center space-x-[10px]'>
             <img src={owner.avatar} className='rounded-full w-10 h-10' />
             <h1>{owner.name}</h1>
           </div>
-
           <p>{postedAt(createdAt)}</p>
         </div>
         <p

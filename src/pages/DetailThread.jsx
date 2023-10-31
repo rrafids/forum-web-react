@@ -5,16 +5,23 @@ import { useEffect } from 'react';
 import { asyncPopulateThreadDetail } from '../states/threadDetail/action';
 import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline';
 import CommentList from '../components/CommentList';
+import CommentInput from '../components/CommentInput';
+import { asyncAddComment } from '../states/comments/action';
 
 export default function DetailThread() {
   const { id } = useParams();
-  const { threadDetail = null } = useSelector((states) => states);
+  const { threadDetail = null, authUser } = useSelector((states) => states);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(asyncPopulateThreadDetail({ threadId: id }));
   }, [id, dispatch]);
+
+  const onSubmitComment = ({ content }) => {
+    dispatch(asyncAddComment({ threadId: id, content }));
+    dispatch(asyncPopulateThreadDetail({ threadId: id }));
+  };
 
   if (!threadDetail) {
     return null;
@@ -41,6 +48,14 @@ export default function DetailThread() {
       </Link>
 
       {thread && <ThreadItem {...thread} fontSize='md' />}
+
+      {authUser && (
+        <div className='space-y-[10px]'>
+          <h1 className='text-lg font-semibold'>Beri Komentar</h1>
+
+          <CommentInput submit={onSubmitComment} />
+        </div>
+      )}
 
       <div className='space-y-[20px]'>
         <h1 className='text-lg font-semibold'>

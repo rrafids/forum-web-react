@@ -10,6 +10,7 @@ import DetailPage from './pages/DetailThread';
 import CreateThreadPage from './pages/CreateThread';
 import { asyncPreloadProcess } from './states/isPreload/action';
 import { asyncUnsetAuthUser } from './states/authUser/action';
+import Loading from './components/Loading';
 
 function App() {
   const { authUser = null, isPreload = false } = useSelector(
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <>
+      <Loading />
       <div>
         <Header />
         <main className='bg-gray-200 h-full flex flex-col items-center min-h-screen place-content-center'>
