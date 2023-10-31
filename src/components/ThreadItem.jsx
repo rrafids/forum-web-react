@@ -17,6 +17,7 @@ export default function ThreadItem({
   totalComments,
   createdAt,
   owner,
+  fontSize = 'sm',
 }) {
   return (
     <div className='space-y-[15px]'>
@@ -28,7 +29,7 @@ export default function ThreadItem({
           {title}
         </a>
         <p
-          className='text-sm line-clamp-5'
+          className={`text-${fontSize} line-clamp-5`}
           dangerouslySetInnerHTML={{
             __html: body,
           }}

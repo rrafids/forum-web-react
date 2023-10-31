@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { asyncPopulateThreadDetail } from '../states/threadDetail/action';
 import { ArrowSmallLeftIcon } from '@heroicons/react/24/outline';
+import CommentList from '../components/CommentList';
 
 export default function DetailThread() {
   const { id } = useParams();
@@ -19,13 +20,35 @@ export default function DetailThread() {
     return null;
   }
 
+  const thread = {
+    id: threadDetail.id,
+    category: threadDetail.category,
+    title: threadDetail.title,
+    body: threadDetail.body,
+    upVotesBy: threadDetail.upVotesBy,
+    downVotesBy: threadDetail.downVotesBy,
+    createdAt: threadDetail.createdAt,
+    owner: threadDetail.owner,
+    totalComments: threadDetail.comments.length,
+  };
+
+  const comments = [...threadDetail.comments];
+
   return (
-    <section className='bg-white w-[750px] p-[25px] space-y-[25px] my-[50px] min-h-screen'>
+    <section className='bg-white w-[750px] p-[25px] space-y-[35px] my-[50px] min-h-screen'>
       <Link to='/'>
         <ArrowSmallLeftIcon className='w-8 h-8 cursor-pointer' />
       </Link>
 
-      {threadDetail && <ThreadItem {...threadDetail} />}
+      {thread && <ThreadItem {...thread} fontSize='md' />}
+
+      <div className='space-y-[20px]'>
+        <h1 className='text-lg font-semibold'>
+          Komentar ({thread.totalComments})
+        </h1>
+
+        <CommentList comments={comments} />
+      </div>
     </section>
   );
 }
