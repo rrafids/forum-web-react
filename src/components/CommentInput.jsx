@@ -20,7 +20,7 @@ export default function CommentInput({ submit }) {
         type='text'
         value={content}
         onChange={onContentChange}
-        placeholder='Email'
+        placeholder='Tuliskan komentar'
       ></textarea>
       <button
         className='w-full bg-black text-white px-3 py-2 rounded'

@@ -1,6 +1,5 @@
 import {
   ArrowRightCircleIcon,
-  ChartBarIcon,
   ChatBubbleLeftRightIcon,
   PowerIcon,
 } from '@heroicons/react/24/outline';
@@ -14,7 +13,7 @@ export default function MenuBar({ authUser, signOut }) {
 
   return (
     <div className='bg-white flex place-content-center fixed bottom-0 w-full border p-[5px]'>
-      <div className='grid grid-cols-3 gap-[30px] text-sm'>
+      <div className='grid grid-cols-2 gap-[30px] text-sm'>
         <Link to='/'>
           <div
             className={`${
@@ -25,7 +24,7 @@ export default function MenuBar({ authUser, signOut }) {
             <h1>Threads</h1>
           </div>
         </Link>
-        <Link to='/leaderboards'>
+        {/* <Link to='/leaderboards'>
           <div
             className={`${
               activeMenu === '/leaderboards' && 'bg-gray-200 rounded-lg'
@@ -34,7 +33,7 @@ export default function MenuBar({ authUser, signOut }) {
             <ChartBarIcon className='h-5 w-5' />
             <h1>Leaderboards</h1>
           </div>
-        </Link>
+        </Link> */}
         {authUser ? (
           <button onClick={signOut}>
             <div className='flex flex-col items-center cursor-pointer p-2'>
