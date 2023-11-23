@@ -17,11 +17,10 @@ export default function DetailThread() {
 
   useEffect(() => {
     dispatch(asyncPopulateThreadDetail({ threadId: id }));
-  }, [id, dispatch]);
+  }, [id, dispatch, threadDetail]);
 
   const onSubmitComment = ({ content }) => {
     dispatch(asyncAddComment({ threadId: id, content }));
-    dispatch(asyncPopulateThreadDetail({ threadId: id }));
   };
 
   if (!threadDetail) {
