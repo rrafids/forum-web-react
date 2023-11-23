@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import ThreadItem from '../components/ThreadItem';
 import { useDispatch, useSelector } from 'react-redux';

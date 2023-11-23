@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ThreadInput from '../components/ThreadInput';
 import { asyncAddThread } from '../states/threads/action';

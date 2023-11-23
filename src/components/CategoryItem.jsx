@@ -1,3 +1,4 @@
+import React from 'react';
 import { categoryModel } from '../models';
 
 export default function CategoryItem({ id, name }) {

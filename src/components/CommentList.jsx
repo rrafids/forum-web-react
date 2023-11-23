@@ -1,3 +1,4 @@
+import React from 'react';
 import { commentModel } from '../models';
 import PropTypes from 'prop-types';
 import CommentItem from './CommentItem';

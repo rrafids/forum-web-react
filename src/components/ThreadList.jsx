@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import ThreadItem from './ThreadItem';
 import { threadModel } from '../models';
