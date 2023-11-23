@@ -14,7 +14,17 @@ function asyncRegisterUser({ name, email, password }) {
   };
 }
 
+function receiveUsersActionCreator(users) {
+  return {
+    type: ActionType.RECEIVE_USERS,
+    payload: {
+      users,
+    },
+  };
+}
+
 export {
   ActionType,
+  receiveUsersActionCreator,
   asyncRegisterUser,
 };
