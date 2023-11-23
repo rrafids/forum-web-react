@@ -1,3 +1,4 @@
+import { hideLoading, showLoading } from "react-redux-loading-bar";
 import api from "../../utils/api";
 
 const ActionType = {
@@ -16,6 +17,8 @@ function receiveThreadDetailActionCreator(threadDetail) {
 
 function asyncPopulateThreadDetail({ threadId }) {
   return async (dispatch) => {
+    dispatch(showLoading());
+
     try {
       const threadDetail = await api.getThreadById({ threadId });
 
@@ -23,6 +26,8 @@ function asyncPopulateThreadDetail({ threadId }) {
     } catch (error) {
       alert(error.message);
     }
+
+    dispatch(hideLoading());
   };
 }
 
