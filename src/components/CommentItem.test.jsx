@@ -23,7 +23,7 @@ describe('CommentItem component', () => {
 
     // action
     const ownerNameElement = screen.getByRole('heading', {
-      name: 'John Doe',
+      name: 'John Doer',
     });
 
     // assert
